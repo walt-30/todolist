@@ -1,7 +1,7 @@
 <template>
   <div>
     <h1>ToDo List</h1>
-    <p>You can add your ToDos in the input field. And then add them by clicking the button.</p>
+    <p>You can write your ToDos in the input field and then add them to the list by clicking the add-button.</p>
   </div>
 
   <div v-for="(todo, index) of todos" :key="todo">
