@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <form @submit.prevent v-on:submit="addItem()">
+  <div id="input">
+    <form @submit.prevent v-on:submit="submitEvent()">
       <input v-model="todo" id="inputField" />
       <button type="submit" id="addButton">Add</button>
     </form>
@@ -18,11 +18,29 @@ export default {
     }
   },
 
+
   methods: {
-  }
+    submitEvent () {
+      this.$emit('eventAdded', this.todo);
+      this.todo = '';
+    }
+  },
 }
 </script>
 
 <style scoped>
+
+#inputField {
+  width: 500px;
+  height: 25px;
+}
+#addButton {
+  margin-left: 5px;
+  width: 50px;
+  height: 32px;
+}
+#input {
+  margin-top: 40px;
+}
 
 </style>
