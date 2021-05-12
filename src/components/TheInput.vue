@@ -11,13 +11,11 @@
 
 export default {
   name: "TheInput",
-
   data () {
     return {
       todo: "",
     }
   },
-
 
   methods: {
     submitEvent () {
@@ -29,7 +27,6 @@ export default {
 </script>
 
 <style scoped>
-
 #inputField {
   width: 500px;
   height: 25px;
@@ -42,5 +39,4 @@ export default {
 #input {
   margin-top: 40px;
 }
-
 </style>
