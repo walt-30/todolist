@@ -4,20 +4,17 @@
     <p>You can write your ToDos in the input field and then add them to the list by clicking the add-button.</p>
   </div>
 
-  <div v-for="(todo, index) of this.todos" :key="todo">
-    {{ todo.todo }}
-    <button v-on:click="del(index)" id="delButton">Delete</button>
-  </div>
-
+  <ListItems v-bind:todos="todos" @deleteTodo="del" />
   <TheInput @eventAdded="addItem" />
 
 </template>
 
 <script>
 import TheInput from "./components/TheInput";
+import ListItems from "./components/ListItems";
 export default {
   name: "App",
-  components: {TheInput},
+  components: {ListItems, TheInput},
   data () {
     return {
       todos: [],
@@ -27,7 +24,7 @@ export default {
   methods: {
     addItem(todo) {
       this.todos.push({id: this.inc(), todo: todo});
-      console.log('addItem: "' + TheInput.todo + '" with id ' + this.counter);
+      console.log('addItem: "' + todo + '" with id ' + this.counter);
       todo = '';
     },
     inc() {
@@ -48,5 +45,4 @@ export default {
   text-align: center;
   margin-top: 40px;
 }
-
 </style>
