@@ -4,32 +4,25 @@
     <p>You can write your ToDos in the input field and then add them to the list by clicking the add-button.</p>
   </div>
 
-  <div v-for="(todo, index) of todos" :key="todo">
-    {{ todo.todo }}
-    <button v-on:click="del(index)" id="delButton">Delete</button>
-  </div>
+  <ListItem />
+  <TheInput />
 
-  <div class="input">
-    <form @submit.prevent v-on:submit="addItem">
-      <input v-model="todo" id="inputField" />
-      <button type="submit" id="addButton">Add</button>
-    </form>
-  </div>
 </template>
 
 <script>
+import TheInput from "./components/TheInput";
+import ListItem from "./components/ListItem";
 export default {
   name: "App",
+  components: {ListItem, TheInput},
   data () {
     return {
-      todo: "",
-      todos: [],
       counter: 0,
     }
   },
   methods: {
     addItem() {
-      this.todos.push({id: this.inc(), todo: this.todo});
+      ListItem.todos.push({id: this.inc(), todo: ListItem.todo});
       console.log('addItem: "' + this.todo + '" with id ' + this.counter);
       this.todo = '';
     },
