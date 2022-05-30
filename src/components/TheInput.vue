@@ -2,7 +2,13 @@
   <div id="input">
     <form @submit.prevent v-on:submit="submitEvent()">
       <input v-model="todo" id="inputField" />
-      <button type="submit" id="addButton">Add</button>
+      <b-button>
+          variant="primary"
+          type="submit"
+          id="addButton"
+      >
+        Add
+      </b-button>
     </form>
   </div>
 </template>
@@ -31,11 +37,7 @@ export default {
   width: 500px;
   height: 25px;
 }
-#addButton {
-  margin-left: 5px;
-  width: 50px;
-  height: 32px;
-}
+
 #input {
   margin-top: 40px;
 }
